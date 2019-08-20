@@ -2,54 +2,60 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
 
-  // GIVEN THIS PROBLEM:
 
-  function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
-  }
+        // GIVEN THIS PROBLEM:
 
-  // SOLUTION:
+        function firstItem(arr, cb) {
+          // firstItem passes the first item of the given array to the callback function.
+        }
 
-  function firstItem(arr, cb) {
-    return cb(arr[0]);
-  }
+        // SOLUTION:
 
-  // NOTES ON THE SOLUTION:
+        function firstItem(arr, cb) {
+          return cb(arr[0]);
+        }
 
-  // firstItem is a higher order function.
-  // It expects a callback (referred to as `cb`) as its second argument.
-  // To test our solution, we will use the given `items` array and a variety of callbacks.
-  // Note how callbacks can be declared separately, or inlined.
+        // NOTES ON THE SOLUTION:
 
-  // TEST 1 (inlined callback):
+        // firstItem is a higher order function.
+        // It expects a callback (referred to as `cb`) as its second argument.
+        // To test our solution, we will use the given `items` array and a variety of callbacks.
+        // Note how callbacks can be declared separately, or inlined.
 
-  firstItem(items, item => console.log(`I love my ${item}!`));
-  // "I love my Pencil!"
+        // TEST 1 (inlined callback):
 
-  // TEST 2 (declaring callback before hand):
+        firstItem(items, item => console.log(`I love my ${item}!`));
+        // "I love my Pencil!"
 
-  function logExorbitantPrice(article) {
-    console.log(`this ${article} is worth a million dollars!`);
-  };
+        // TEST 2 (declaring callback before hand):
 
-  firstItem(items, logExorbitantPrice);
-  // "this Pencil is worth a million dollars!"
-*/
+        function logExorbitantPrice(article) {
+          console.log(`this ${article} is worth a million dollars!`);
+        };
+
+        firstItem(items, logExorbitantPrice);
+        // "this Pencil is worth a million dollars!"
+
 
 
 function getLength(arr, cb) {
+  return cb(arr.length)
   // getLength passes the length of the array into the callback.
 }
+getLength(items, arrayLength => console.log(`array length is ${arrayLength}`))
 
 function last(arr, cb) {
+  return cb(arr[arr.length-1])
   // last passes the last item of the array into the callback.
 }
+last(items, lastItem => console.log(`last array item is ${lastItem}`))
 
 function sumNums(x, y, cb) {
+  return cb(x+y)
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
+sumNums(3, 4)
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.

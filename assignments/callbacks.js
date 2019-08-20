@@ -43,29 +43,34 @@ function getLength(arr, cb) {
   return cb(arr.length)
   // getLength passes the length of the array into the callback.
 }
-getLength(items, arrayLength => console.log(`array length is ${arrayLength}`))
+getLength(items, arrayLength => console.log(`array length is ${arrayLength}`));
+
+getLength([1, 2, 3], length=> console.log(`Length is ${length}`));
 
 function last(arr, cb) {
   return cb(arr[arr.length-1])
   // last passes the last item of the array into the callback.
 }
-last(items, lastItem => console.log(`last array item is ${lastItem}`))
+last(items, lastItem => console.log(`last array item is ${lastItem}`));
 
 function sumNums(x, y, cb) {
-  return cb(x+y)
+  return cb(x+y);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
-sumNums(3, 4)
+sumNums(3, 4, sum => console.log(`sum is ${sum}`));
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x*y)
 }
+multiplyNums(3, 4, multiple => console.log(`multiple is ${multiple}`))
 
 function contains(item, list, cb) {
+  return cb(list.includes(item))
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
-
+contains("Pencil", items, foundIt => console.log(foundIt))
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {

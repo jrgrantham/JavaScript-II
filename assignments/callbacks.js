@@ -39,13 +39,38 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 
-function getLength(arr, cb) {
+function getLength(arr, cb) {  // higher order function
   return cb(arr.length)
   // getLength passes the length of the array into the callback.
 }
-getLength(items, arrayLength => {
-  console.log(`array length is ${arrayLength}`)
-});
+
+function callback(arrayLength) {
+  console.log(`array length is ${arrayLength}`)  
+}
+
+getLength(items, callback)
+
+
+
+//---------------------------------
+
+function getLength (arr, cb) {   // higher order function
+  return cb(arr.length)
+}
+
+//              returning the length
+getLength(items, function (length) {   // callback function
+  console.log(length)
+})
+
+getLength(items, function (length) {
+  // alert(length)
+})
+
+//---------------------------------
+
+
+
 
 // getLength([1, 2, 3], length => {
 //   console.log(`Length is ${length}`);
@@ -57,17 +82,47 @@ function last(arr, cb) {
 }
 last(items, lastItem => console.log(`last array item is ${lastItem}`));
 
+
+
+function last(arr, cb) {
+  return cb(arr[arr.length-1])
+}
+
+last (items, function(lastItem) {
+  console.log(lastItem)
+})
+
+
 function sumNums(x, y, cb) {
   return cb(x+y);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
 sumNums(3, 4, sum => console.log(`sum is ${sum}`));
 
+
+
+function sums(x, y, cb) {
+  return cb(x+y)
+}
+
+sums(3, 4, function(threeplusfour) {
+  console.log(threeplusfour)
+})
+
+
+
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
   return cb(x*y)
 }
 multiplyNums(3, 4, multiple => console.log(`multiple is ${multiple}`))
+
+
+// take two numbers - higher order function
+// multiply together and return
+// create callback
+// pass result into callback (to console log it)
+
 
 function contains(item, list, cb) {
   return cb(list.includes(item))
